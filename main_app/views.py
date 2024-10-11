@@ -5,8 +5,7 @@ from django.contrib import messages
 from .forms import SignUpForm
 from django.http import HttpResponse
 from pprint import pprint
-from .models import Product, Retailer
-from .models import Wishlist
+from .models import Product, Retailer, Wishlist, PriceHistory
 import urllib.parse
 import requests
 import re
@@ -181,6 +180,10 @@ def fetch_product_details(request, product_id):
                 'user': request.user,
                 'retailer': retailer
             }
+        )
+        PriceHistory.objects.create(
+            product=product,
+            price=price
         )
        
         Wishlist.objects.get_or_create(
