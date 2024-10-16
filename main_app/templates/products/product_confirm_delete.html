@@ -1,17 +1,17 @@
-{% extends 'base.html' %} 
-{% load static %} 
+{% extends 'base.html' %}
+{% load static %}
 {% block content %}
-
+  
 <div class="page-header">
-  <h1>Delete Item?</h1>
-  <img src="{% static '' %}" alt="TODO: Add small pokemon icon" />
+<h1>Delete Item?</h1>
+<img src="{% static '' %}" alt="Image of your wishlist item to be deleted" />
 </div>
 <h2>Are you sure you want to delete {{ object.name }}?</h2>
-
+  
 <form action="" method="post" class="form">
-  {% csrf_token %}
-  <a href="{% url 'wishlist-delete' object.id %}" class="btn secondary"> Cancel </a>
-  <button type="submit" class="btn danger">Yes - Delete!</button>
+{% csrf_token %}
+<a href="{% url 'wishlist-delete' object.id %}" class="btn secondary"> Cancel </a>
+<button type="submit" class="btn danger">Yes - Delete!</button>
 </form>
-
+  
 {% endblock %}
