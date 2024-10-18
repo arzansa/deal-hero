@@ -1,0 +1,112 @@
+.parallax {
+    position: relative;
+    z-index: 0;
+    min-height: 75vh;
+    max-height: 90vh;
+    display: grid;
+    grid-template-areas: "stack";
+}
+
+.parallax > * {
+    grid-area: stack;
+    animation: parallax linear;
+    animation-timeline: scroll();
+}
+
+.parallax__sky {
+    --parallax-speed: 10;
+    z-index: 1;
+    min-height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.parallax__moon {
+    --parallax-speed: -10;
+    z-index: 2;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.parallax__big_cloud {
+    --parallax-speed: -1;
+    z-index: 3;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    opacity: 65%;
+}
+
+.parallax__small_cloud{
+    --parallax-speed: -13;
+    z-index: 4;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    animation: parallax-horizontal linear;
+}
+
+
+.parallax__buildings {
+    --parallax-speed: 10;
+    z-index: 5;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.hero-header, .hero-description {
+    --parallax-speed: 10;
+    z-index: 10;
+    margin-inline: auto;
+}
+
+.search-bar-container {
+    z-index: 10;
+}
+
+.slogan {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    column-gap: 12px;
+}
+
+.hero-description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 50%;
+    line-height: 1.5;
+}
+
+.hero-description h3 {
+    background-color: rgba(69, 69, 69, 0.662);
+    padding: 12px;
+    border-radius: 12px;
+}
+
+.start-now-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 32px;
+    width: 100%;
+}
+
+@keyframes parallax {
+    to{
+        transform:
+        translateY(calc(var(--parallax-speed) * 200px));
+    }
+}
+
+@keyframes parallax-horizontal {
+    to{
+        transform:
+        translateX(calc(var(--parallax-speed) * 200px));
+    }
+}

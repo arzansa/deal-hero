@@ -1,41 +1,12 @@
-.wrapper {
+ #main-content {
     height: 100%;
-    background-image: url('../images/BG\ 1\ -\ Sky.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-
-    .hero-header {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        max-width: 85%;
-    }
-
-    .slogan {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        column-gap: 12px;
-    }
-
-    .hero-description {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .hero-description h3 {
-        background-color: rgba(69, 69, 69, 0.662);
-        padding: 12px;
-        border-radius: 12px;
-    }
+    position: relative;
+    background: linear-gradient(to right, #563d7c, #2a0845);
+    padding-top: 24px;
 
     .other-options-carousel {
         display: flex;
@@ -45,8 +16,18 @@
         padding-left: 12px;
         column-gap: 24px;
         overflow-x: scroll;
-        scrollbar-color: gold;
+        scrollbar-color: gold purple;
         scrollbar-width: thin;
+        overscroll-behavior-inline: contain;
+    }
+    
+    .snaps-inline {
+        scroll-snap-type: inline mandatory;
+        scroll-padding-inline: 2rem;
+    }
+    
+    .snaps-inline > * {
+     scroll-snap-align: start;
     }
 
     .product-card {
@@ -93,6 +74,7 @@
         object-fit: contain;
         width: 100%;
         max-height: 100%;
+        position: relative
     }
 
     .product-image {
@@ -129,5 +111,16 @@
     
     .merchant-logo {
         border-radius: 50%;
+    }
+    .savings-stamp{
+        border-radius: 50%;
+        background-color: rgb(255 0 0 / 74%);
+        position: absolute;
+        top: -12px;
+        right: 24px;
+        height: 42px;
+        width: 42px;
+        display: flex;
+        align-items: center;
     }
 }
